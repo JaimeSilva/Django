@@ -1,0 +1,25 @@
+#Creating a folder for cloning 
+
+git clone https://github.com/JaimeSilva/Django.git
+
+#adding the a file to git 
+
+git add index.html
+git add .  -> adds everything in the current directory 
+
+#commiting to git 
+
+git commit -m "added index.html"
+
+(it's still not synchronized)
+
+#pushing
+
+git push 
+
+
+it's online
+
+#work flow 
+
+git pull -> downloads all the changes
