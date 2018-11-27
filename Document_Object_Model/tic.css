@@ -1,0 +1,14 @@
+
+table{
+    font-family: fantasy;
+    margin-left: auto;
+    margin-right: auto;
+    border: black 2px solid;
+    font-size: 60px;
+}
+td{
+    border: black 2px solid;
+    width:100px;
+    height:95px;
+    text-align:center;
+}

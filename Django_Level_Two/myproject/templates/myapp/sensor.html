@@ -1,0 +1,94 @@
+{% extends 'myapp/base.html' %}
+{% load staticfiles %}
+
+{% block page %}
+
+
+
+
+
+
+        <div id="show">
+
+        <div class="container">
+            <div class="jumbotron">
+            <div class="font">
+                <table>
+                    <tr id="row">
+                        <td></td>
+                        <td id="font"><small><small><small>Temperature</small></small></small></td>
+                        <td id="font"><small><small><small>Altitude</small></small></small></td>
+                        <td id="font"><small><small><small>Pressure</small></small></small></td>
+                    </tr>
+                    <tr>
+                        <td id="name">Cali</td>
+                        <td id="segment">{{sensor_tag.temperature}} &#8451;</td>
+                        <td id="segment">{{sensor_tag.altitude}} <span id ="super">m</span></td>
+                        <td id="segment">{{sensor_tag.pressure}} <span id ="super">hPa</span></td>
+                    </tr>
+
+                </table>
+
+            </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div id="over" class="jumbotron">
+            <div class="font">
+                <table>
+                    <tr>
+                        <td></td>
+                        <td id="font"><small><small><small>Temperature</small></small></small></td>
+                        <td id="font"><small><small><small>Altitude</small></small></small></td>
+                        <td id="font"><small><small><small>Pressure</small></small></small></td>
+                    </tr>
+                    <tr>
+                        <td id="name1">Japan</td>
+                        <td id="segment1">{{Japan.temperature}} <span id = super>&#8451;</span></td>
+                        <td id="segment1">{{Japan.altitude}} <span id ="super">m</span></td>
+                        <td id="segment1">{{Japan.pressure}} <span id ="super">hPa</span></td>
+                    </tr>
+
+
+                </table>
+
+            </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div id="over" class="jumbotron">
+            <div class="font">
+                <table>
+                    <tr>
+                        <td id="name1">Dojo</td>
+                        <td id="segment1">{{dojo.temperature}} <span id = super>&#8451;</span></td>
+                        <td id="segment1">{{dojo.altitude}} <span id ="super">m</span></td>
+                        <td id="segment1">{{dojo.pressure}} <span id ="super">hPa</span></td>
+                    </tr>
+
+                </table>
+
+            </div>
+            </div>
+        </div>
+        </div>
+
+
+        <script type="text/javascript" src="{% static "myapp/jquery/jquery.js" %}"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                setInterval(function () {
+                    $('#show').load('{% url "refresh" %}')
+                    console.log("ye");
+                }, 15000);
+            });
+        </script>
+
+
+{% endblock %}
+
+
+    </body>
+</html>

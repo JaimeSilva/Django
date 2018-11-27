@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+
+        
+    	</script>
+        {% if user_tag %}
+            <h1>Here are your users:</h1>
+
+            <ol>
+                {% for user in user_tag %}
+                <li>User Info</li>
+                <ul>
+                    <li>First Name: {{ user.top_name }}</li>
+                </ul>
+                {% endfor %}
+            </ol>
+
+
+
+
+        {% else %}
+            <h1>oops</h1>
+        {% endif%}
+
+
+
+    </body>
+</html>

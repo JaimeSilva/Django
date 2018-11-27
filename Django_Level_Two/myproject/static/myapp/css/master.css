@@ -1,0 +1,50 @@
+
+.font{
+    font-size: 30px;
+    font-family: monospace;
+
+    color: #5E6934;
+
+}
+
+#name{
+    color:#4C5235;
+    font-weight: bold;
+    padding-right: 75px;
+}
+#name1{
+    color:#7D8264;
+    font-weight: bold;
+    padding-right: 75px;
+}
+td{
+    padding-left: 75px;
+    text-align: center;
+}
+
+.container{
+    padding-top: 50px;
+    text-align: center;
+}
+
+.jumbotron{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+#segment{
+     font-family: 'Segment7Standard';
+}
+#super{
+    font-family: monospace;
+    color: #5E6934;
+}
+#segment1{
+    font-family: 'Segment7Standard';
+
+    color:#75FF00;
+}
+#over{
+    background-color: #444B37
+}

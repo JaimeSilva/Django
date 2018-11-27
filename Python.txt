@@ -1,0 +1,3098 @@
+
+#___________________________________________________HTML_______________________________________________#
+"____________________________________________HypetText markup language_____________________________________"
+
+
+
+
+
+'FullStack:_______________________________________________________________________________________________'
+'''
+	Front-end
+	Back-end '''
+	
+	
+	
+'Front-end:______________________________________________________________________________________________'
+'''
+	HTML
+	CSS(Cascading Style sheets)
+	JavaScript(Interactivity)
+	Jquery
+	BootStrap
+	(Jquery and BootStrap derive from HTML CSS JavaScript)'''
+
+	
+	
+'Back-end:_______________________________________________________________________________________________'
+
+	#The back-end has 3 components
+      '''the language
+		the framework
+		the database'''
+
+	#Particularly in this course:
+	  '''Python is the language
+		Django is the framework
+		SQLite is the database'''
+		
+		
+		
+		
+____________________________________""" HTML Level 1 - Basics """_____________________________________
+
+
+
+
+'BOLD_________________________________________________________________________________________________'
+
+<p><b>This is text that is in bold</b></p>
+<p><strong>This is text that is in italic</strong></p>
+
+
+
+'ITALIC_______________________________________________________________________________________________'
+
+ <p><i>This is text that is in italics</i></p>
+ <p><em>This is text that is in italic</em></p>
+ 
+ 
+ 
+'Anchor tag____________________________________________________________________________________________'
+
+<a href= "link" > click </a>
+
+
+
+'LISTS_________________________________________________________________________________________________'
+
+
+
+#Ordered list:
+
+<ol>
+		<li>First item</li>
+		<li>Second item</li>
+</ol>
+
+
+
+
+#Unordered list:
+
+<ul>
+		<li>First item</li>
+		<li>Second item</li>
+</ul>
+
+
+#Nested lists:
+
+<ol>
+		<li>First item</li>
+		<li>Second item</li>
+		<ul>
+				<li>First item</li>
+				<li>Second item</li>
+		</ul>
+</ol>
+
+
+
+
+
+'DIVS & SPANS________________________________________________________________________________________'
+
+They are useful adding style with CSS
+Div stands for division.
+
+
+'Attributes_______________________________________________________________________________________________'
+
+img is a single tag
+the alt attribute in img is a string 
+to show up in case the image is missing.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+_____________________________________""" HTML Level 2 - Advanced """__________________________________
+
+
+
+
+'Tables_______________________________________________________________________________________________'
+
+<table>
+<thead> First row (header row)
+<th> Elements inside the header row
+<tr> Table row
+<td> Tlement inside table row
+
+
+
+
+
+
+
+'Forms________________________________________________________________________________________________'
+
+input:
+
+	type: 
+		text
+		pass 
+		radiobuttons
+		submit
+		email
+	
+	name:
+		name assigned to the input so it can be referenced in other places
+		
+	
+	
+
+'Label_________________________________________________________________________________________________'
+
+<label for = "ref" > Enter text: </label>
+<input type = "text" value = "ref">
+
+
+#for
+'''Permite associar a um input(id) 
+com o mesmo value a string contida na tag label '''
+		
+		
+		
+		
+		
+
+'RadioButtons_____________________________________________________________________________________________'
+
+'''Para ligar dois radiobuttons o atributte name deve ser igual em ambos '''
+
+
+
+
+
+'Dropdownmenu___________________________________________________________________________________________'
+ 
+ <select name="stars">
+            <option value="Great">3</option>
+            <option value="Okay">2</option>
+            <option value="Bad">1</option>
+ </select>
+
+
+
+
+ 
+'Textarea________________________________________________________________________________________________'
+
+<textarea name="name" rows="8" cols="80"></textarea>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#_______________________________________________CSS________________________________________________#
+"__________________________________________Cascade Style Sheet_________________________________________"
+
+
+
+
+
+
+______________________________________""" CSS Level 1 - Basics """__________________________________
+
+
+
+
+
+
+
+It is possible to style inside the html but more common and appropriate in a .css file linking it to an html file. 
+
+
+how to link?
+
+master.css
+
+index.html
+<link rel="stylesheet" href="master.css">
+
+comments in CSS
+
+/*    */
+
+
+background: url(https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&h=350);
+background-repeat:no-repeat;
+background: blue;
+border: orange;
+border-width: thick; 
+border-style: dotted;
+color: yellow;
+
+#Selectors
+https://www.w3schools.com/cssref/css_selectors.asp
+
+
+
+'CLASSES________________________________________________'
+
+    <div class="firstDiv">
+      <p>I'm inside the first div</p>
+    </div>
+	
+	
+	.firstDiv{
+		color:blue;
+	}
+	
+'IDs________________________________________________'
+
+	<p id='singledout'>ids must be unique!</p>
+	
+	#singledout{
+		color:green;
+	}
+	
+'Asterisk________________________________________________'
+
+*{
+ color:black;
+}
+	the asterisk will override everything but the IDs, it's not common to use this 
+	
+	
+'Adjacent siblings________________________________________________'
+
+As duas tags têm que estar juntas no código caso contrário não funciona
+
+<h3>Here is a list</h3>
+<ul>
+	<li>Confirm? <input type="checkbox" name="" value=""></li>
+	<li>Feedback? <input type="text" name="" value=""></li>
+</ul>
+
+/*Adjacent sibling: Elements that are next to each other*/
+h3 + ul{
+  border: 3px dotted purple;
+}
+
+
+'Descendants________________________________________________'
+
+All the ancor tags inside the list will be affected
+
+
+li a{
+  color: black;
+}
+
+
+'Attributes________________________________________________'
+
+
+<ul> 
+	<li><a href="www.pieriandata.com">Pierian Data</a></li>
+	<li><a href="www.npr.org">NPR</a></li>
+</ul>
+
+li a[href="www.npr.org"]{
+	color: red;
+	border: 5px solid orange;
+}
+	
+	
+	
+'Specificity________________________________________________'
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity
+https://designshack.net/articles/css/what-the-heck-is-css-specificity/
+
+Existe uma hierarquia no .css file 
+
+ID - sobrepõe-se ao attribute class( quando existe uma tag com id e class, o estilo escolhido é o do ID) 
+class - afeta todas as tags com a class mencionada 
+vazio - pode-se também referenciar tags "em vazio" por exemplo li{} não tendo qualquer prioridade sobre id ou class
+
+
+
+
+'Fonts________________________________________________'
+
+Fonts on Windows:
+https://en.wikipedia.org/wiki/List_of_typefaces_included_with_Microsoft_Windows
+Fonts on Macs:
+https://en.wikipedia.org/wiki/List_of_typefaces_included_with_macOSfon
+General Font Information:
+http://www.cssfontstack.com/
+
+
+   <!-- You can easily add links to Google Fonts or to FontLibrary: -->
+
+    <!-- fonts.google.com -->
+
+    <!-- <link href="	" rel="stylesheet"> -->
+
+    <!-- https://fontlibrary.org/en -->
+
+    <!-- <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/glacial-indifference" type="text/css"/> -->
+
+
+Some OSs only have some fonts, so it might be necessary to download a font
+
+font-family:"Arial";
+
+it's not common to se the size of a font in pixels.
+
+only one time the font size is defined in pixels.
+
+then it's defined in -em-
+
+1 em = the font size defined in pixels.
+
+
+'Box Model_______________________________________________________________________'
+
+um elemento com conteúdo, na verdade tem uma margem, bordas, e padding
+
+Margin
+border
+padding
+content
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#______________________________________________BootStrap_____________________________________________#
+"____________________________________________________________________________________________________"
+
+
+Bootstrap is a framework for front-end development 
+
+what is a framework?
+-Inversion of control(the framework define some rules)
+-Default Behaviour
+-Extensibility
+-Non-modifiable Framework Code 
+
+
+CDN 
+Content Delivery Network
+
+Bootstrap can be downloaded or referenced to a CDN with a link
+
+
+'nav bar__________________________________________________________'
+
+'Code for the hamburger icon'
+
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+
+                  
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+Everything inside this div will colapse
+</div>
+
+
+'Grids_______________________________________________________________'
+
+col-ScreenSize-NumberofColumns
+
+col-lg-4 col-sm-6 
+
+Quando está large apresenta 3 divisões.
+Quando está small apresenta 2 divisões.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#______________________________________________JavaScript_____________________________________________#
+"____________________________________________________________________________________________________"
+
+
+
+
+
+
+
+
+
+Todos os números são tratatos de forma igual
+
+#Exponents 
+2 ** 4 -> 16
+
+"Django".length -> 6
+
+\n 
+new line 
+
+\t
+tab 
+
+\"
+quotes
+
+"Django"[0] -> D 
+
+
+
+#Variables
+
+var varName = value;
+
+Functions
+
+alert("hello")
+pop up 
+
+console.log("hello")
+writes in the console 
+
+prompt("Enter something")
+input field in a pop up
+
+var value = prompt("Enter something")
+value is equal to the input field 
+
+
+'Connecting JavaScript_____________________________________'
+
+<script src="myscript.js">
+            
+ </script>
+
+ 
+ 'Operators___________________________________________'
+ 
+ #Booleans:
+ true
+ false
+ 
+ #Greater than 
+ >   >=
+ 
+ #Less than 
+ <   <=
+ 
+ #Equality
+ ==
+ ===
+ 
+ 2=="2"   -> true 
+ 2==="2" -> false 
+ 
+ true == 1 -> true
+ true ===1 -> false 
+ false == 0 -> true 
+ false ===0 -> false
+ null== undefined -> true 
+ null === undefined -> false 
+ NaN == NaN -> false 
+ 
+
+ #Inequality
+ !=
+!==
+
+5!="5"   ->false 
+5!=="5" ->true  
+ 
+ 
+
+ #And 
+ &&
+ 
+ #Or 
+ ||
+ 
+ #not 
+ !
+ 
+ 
+ 
+ 'Control Flow__________________________________________________'
+ 
+ 
+ 
+ #if
+ if(condition){
+ }
+ 
+ 
+ #if else 
+ if(condition){
+ 
+ }else{
+ 
+ }
+ 
+
+ 
+ #if else if else
+ if(condition){
+ 
+ }else if(condition){
+ 
+ } else{
+ }
+ 
+ 
+ #while loop
+ 
+ while(condition){
+	break;
+ }
+ 
+ 
+ #for loop
+ 
+ for(i = 0; condition(i) ; i variation){
+	break;
+ }
+ 
+ 
+ '_________________________________________ string length'
+ var x = "Jaime"
+ 
+ x.length -> 5
+ 
+ 'Functions___________________________________________________________________'
+ 
+ 
+ 
+ function name(parameter1, parameter2, parameter3) {
+    //code to be executed
+}
+
+function hello(){
+    console.log("hello world!");
+}
+
+hello -> returns the function
+hello() -> returns the hello world! string 
+
+
+#default parameter 
+function helloSomeone(name="Frankie"){
+    console.log("Hello "+name);
+}
+
+helloSomeone() -> Hello Frankie 
+helloSomeone(Jaime)-> Hello Jaime 
+
+
+#return + default parameter 
+
+function formal(name="Sam",title="Sir"){
+    return title+" "+name;
+}
+ 
+Variables inside a function are limited to its scope 
+assigning a global variable inside a function (previously defined globally)
+won't make permanent global changes to the variable 
+ 
+ 
+ codingbat.com website with programming problems.
+ 
+
+ 
+ 
+ 
+ 'Arrays___________________________________________________________________'
+ 
+ 
+ 
+ 
+ var countries = ["USA","Germany","China"]
+ mutable = reassignable indexable
+ 
+ arrays are mutable
+ 
+ strings are immutable ( they are not reassignable)
+ 
+ arrays can mix data types 
+ 
+ #array length 
+ var countries = ["USA","Germany","China"]
+ countries.length -> 3
+ 
+ 
+ Mozila developer network has good information about arrays(cycling through an array for instance)
+ 
+ #push pop 
+ var countries = ["USA","Germany","China"]
+ var last = countries.pop()
+ last -> china 
+ countries -> ["USA","Germany"]
+ 
+ countries.push("France")
+ countries -> ["USA","Germany","France"]
+ 
+ 
+ 
+ #last item indexing 
+ 
+ countries[countries.length - 1]
+ 
+ 
+ #Matrixes
+ var matrix[[1,2,3],[4,5,6],[7,8,9]]
+ 
+ 
+ #cycling through arrays
+ 
+ for(i = 0; i < countries.length; i++){
+	console.log(countries[i])
+ }
+ 
+ 
+ #for OF 
+ 
+ for(country of countries)
+ console.log(country)
+ 
+ #for each 
+ countries.forEach(alert)
+ 
+ 
+ function addAwsome(name){
+	console.log(name +" is awsome!")
+ }
+ 
+ countries.forEach(addAwsome)
+ Output:
+ USA is awsome!
+ 2 is awsome!
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 'Objects___________________________________________________________________'
+ 
+ 
+ 
+ #it's not a common object like Java 
+ 
+ var carInfo = {make:"Toyota", year:1990,model:"Camry"};
+ 
+ carInfo["make"] -> Toyota
+
+#Objects can contain arrays and nested objects 
+ 
+ var obj = {a:"hello", b:[1,2,3], c:{inside:['a','b']}}
+ 
+ #indexing the array:
+ obj['b'][1]
+ 
+ 
+#indexing the array inside the c object 
+obj['c']['inside'][1]
+ 
+ #re assigning 
+ obj['a']="Hello World"
+ 
+ 
+ #listing the full object
+ console.dir(obj)
+ 
+ #iterating through an object / for IN
+ 
+ for(key in obj){
+	console.log(key)
+	console.log(obj[key])
+ }
+ 
+ The order of iteration is not necesserialy the order of the object items defined 
+ 
+ 
+ 
+ #object methods (functions inside objects)
+ 
+ var test = {
+		prop:"Hello",
+		myMethod: function(){
+			console.log("The myMethod was called")
+		}
+ }
+ 
+ how to call myMethod?
+ 
+ test.myMethod()->"The myMethod was called"
+ 
+ 
+ #this 
+ 
+ var woot = {
+	name: "Jaime",
+	greet: function(){
+		console.log("Hello " + this.name)
+	}
+}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ #_____________________________________Document Object Model_____________________________________________#
+"____________________________________________________________________________________________________"
+
+
+
+
+
+
+ DOM is an interface between JS and HTML/CSS 
+ 
+ The DOM of a website in inspectable 
+ 
+ #some important document attributes:
+ document.URL
+ document.body 
+ document.head
+ document.links 
+ 
+ #Some methods to grab elements from the dom
+ 
+ document.getElementById()
+ document.getElementByClassName()
+ document.getElementsByTagName()
+ document.querySelector()
+ document.querySelectorAll()
+ 
+ 
+ #Communicating to dom (changing color of h1)
+ 
+ var myheader = document.querySelector("h1")
+ myheader.style.color = 'green'
+ 
+ #Communicating to dom (changing textContent)
+ 
+ var myheader = document.querySelector("p")
+ myheader.textContent = "new Text"
+ 
+ #Communicating to dom (innerHTML)
+ 
+ var myheader = document.querySelector("p")
+ myheader.innerHTML = '<strong> Become bold </strong>'
+ 
+ #Communicating to dom (get/set Attributes)
+ 
+ var myheader = document.querySelector("a")
+myheader.getAttribute("href") 
+ myheader.setAttribute("href","https://www.jaimedcsilva.com")
+ 
+
+ 
+ 
+ 
+ #Executing JS function periodically 
+ 
+ setInterval("changeHeaderColor()",500);
+ 
+ 
+ 
+ 'Math.random()'
+ 
+ 
+ 'DOM Events__________________________________________________________'
+ 
+ 
+ possible events:
+ 
+ Clicks
+ Hovers
+ Double Clicks
+ Drags
+ 
+ headOne.addEventListener('mouseover',function(){
+    
+})
+
+headOne.addEventListener('mouseout',function(){
+    
+})
+
+
+headTwo.addEventListener('click',function(){
+    
+})
+
+headThree.addEventListener('dblclick',function(){
+    
+})
+ 
+ 
+#Libraries for JavaScript:
+ 
+ Angular
+ ReactJS
+ NodeJS
+ 
+ 
+ 
+ 
+ This was "vanilla" JavaScript
+ 
+ 
+ 
+ 
+ 
+ #________________________________________________jQuery_____________________________________________#
+"________________________________________________________________$____________________________________"
+
+
+
+ 
+ jQuery is a JavaScript Library 
+ 
+ jQuery is a large .js file with pre-built methods and objects
+ 
+ DOM interaction and HTTP requesting(AJAX)
+ 
+ 
+ 
+ 
+ jQuery was created as a way to help simplify interactions with the DOM
+ 
+ 
+ 
+ 
+ 'Connecting jQuery___________________________________'
+ 
+ it is done with the <script></script> tags 
+ it can be added through download or through CDN
+ 
+ 
+ CDN link:
+ code.jquery.com
+ 
+ 
+ 
+#Grabbing elements from the DOM 
+
+var x = $('h1')
+
+#Changing css values 
+
+x.css('color','green')
+
+var obj = {
+	'color':'white',
+	'background':'blue'
+} 
+
+x.css(obj)
+
+#indexing multiple elements object 
+
+var list = $('li')
+
+list.eq(index).css('color','green')
+
+#indexing last item of multiple elements object 
+
+list.eq(-1).css('color','green')
+
+
+
+
+
+#changing element text 
+
+$('h1').text("Brand NEW Text")
+
+
+
+
+
+#changing element html
+
+$('h1').html("<strong>Brand NEW Text</strong>")
+
+
+
+
+#changing attribute element(input) from multiple object list
+
+$('input').eq(1).attr('type','checkbox')
+
+
+
+#changing value from input textfield
+
+$('input').eq(0).val('new Value!')
+
+
+#adding/removing/toggle classes to an element 
+
+$('h1').addClass('className')
+$('h1').removeClass('className')
+$('h1').toggleClass('className')
+
+toggleClass will switch from remove to add class on each call
+ 
+ 
+ 
+ 
+'Events__________________________________________________________'
+ 
+#click event  
+ $('h1').click(function(){
+    $(this).text("I was changed!")
+})
+
+the this keyword relates to the object being listened 
+
+ 
+ 
+#key press events 
+
+$('input').eq(0).keypress(function(){
+		$('h3').toggleClass('turnBlue');
+})
+
+#Detecting a specific key(enter === 13)
+
+$('input').eq(0).keypress(function(){
+		if(event.which === 13){
+			$('h3').toggleClass('turnBlue');
+		}
+})
+ 
+
+
+#the ON Method 
+
+$('h1').on('dblclick', function(){
+	$(this).toggleClass('turnRed');
+})
+
+#Fade Out / ON Method 
+
+$('input').eq(1).on('click', function(){
+		$('.container').fadeOut(5000);
+})
+
+#slideUp / ON Method 
+
+$('input').eq(1).on('click', function(){
+		$('.container').slideUp(5000);
+})
+
+
+
+
+#________________________________________________Backend_____________________________________________#
+"_____________________________________________________________________________________________________"
+
+
+
+'Django overview________________________'
+
+
+user requests url on website
+query happens in urls.py 
+urls connect to views.py
+models.py is called by views.py(contains all the information about the database)
+models.py connects back to views.
+templates are affected 
+sends back to user 
+
+
+
+'cmd'
+
+netsh wlan show profile NOS_Internet_Movel_900D key=clear
+
+
+
+
+
+
+
+
+
+
+
+
+
+#________________________________________________Python_____________________________________________#
+"_____________________________________________________________________________________________________"
+
+
+
+Python can be installed through distributions
+distributions are versions of python that have additional libraries
+
+dynamic programming language(you don't need to declare variable types)
+
+#Numbers
+-Integers
+-Floating Point Numbers 
+
+
+
+
+
+#powers 
+2**2 -> 4 
+
+
+#comments 
+
+		# 
+		
+		
+		
+#variables
+
+Jaime = 20
+
+
+#Strings 
+
+"hello"
+'hello'
+
+#indexing Strings 
+
+myString = 'abcdefgh'
+
+myString[0] -> 'a'
+myString[-1] -> 'h'
+myString[2:] -> 'cdefgh'
+myString[:2] -> 'ab'
+myString[2:5] -> 'cde'
+myString[::2] -> 'aceg'
+myString.upper() ->'ABCDEFGH'
+myString.lower() -> 'abcdefgh'
+myString.split('e') -> ['abcd', 'fgh']
+
+
+x = "String String String {}".format("Jaime")
+x -> StringString String Jaime
+
+x = "String String String {x} String String String {y}".format(x = "Jaime", y = "Python")
+x -> StringString String Jaime StringString String Python
+
+
+
+Strings are immutable(Can't change values by indexing)
+
+
+
+#Lists 
+
+it holds mixed data types
+this is the python array 
+
+'Creating a list:'
+
+mylist = [1,2,3]
+
+mylist = ["Jaime",1,2,3,[1,2,3]]
+
+'Length'
+
+len(mylist)
+
+
+'Indexing is similar to Strings'
+
+'reassgignments'
+
+mylist[0] = 'new item'
+
+Lists are muttable unlike strings 
+
+'appending items'
+
+mylist.append("x")
+
+
+'extending lists' (appending another list to a list)
+
+anotherlist = [1,2,3]
+mylist.extend(anotherlist)
+
+
+'removing from list'
+mylist.pop()
+
+pops the last item of a list, can be assigned to a variable 
+
+
+mylist.pop(0) -> "Jaime"
+
+
+'reversing the order of a list'
+
+mylist.reverse() 
+
+
+'sorting'
+
+mylist.sort()
+
+there is a specific order for ordering different datatypes in the same list, available in documentation
+
+'indexing nested lists'
+
+mylist[2][1]
+
+
+
+
+#Dictionaries
+
+Dictionaries are python hashtables( JavaScript Objects )
+
+they don't retain a order
+
+dictionaries can ve nested 
+
+dic = {"key1":"value1","key2":123,"key3":{"list":[1,2,3]}}
+
+dic['key1']->"value1"
+
+
+'indexing'
+
+dic["key3"]["list"][2] -> 3
+
+'re assigning'
+
+
+dic["key1"] = "other value "
+
+
+'adding another key'
+
+dic["value4"] = "newvalue"
+
+they don't hold methods like in JavaScript 
+
+
+
+#tuples sets and booleans 
+
+
+'Booleans______________________________'
+True
+False 
+
+
+
+'Tuples______________________________'
+immutable sequences(re assignment not allowed)
+
+
+t = (1,"JAime",3)
+t[0]->1
+
+
+
+'Sets______________________________'
+
+unordered collections of unique elements 
+
+x = set()
+
+x.add(1)
+x.add(2)
+x.add(4)
+x.add(0.1)
+
+Does not hold repeated elements, trying to do it won't pop an error.
+
+
+list = [1,1,1,1,2,2,2,3,3,3]
+
+
+converting  a list into a set:
+
+
+convert = set(list)
+
+convert->{1,2,3}
+
+
+
+#Control Flow 
+
+
+Greater than
+> >=
+
+Less han 
+< <=
+
+Equality 
+1 == 1 -> True 
+1== "1" -> False 
+
+1!="1" -> True 
+
+and or 
+
+Identation is extremely important in Python 
+
+
+
+
+if 1<2:
+	print('yes')
+elif 2==2:
+	print('elif')
+else:
+	print('no')
+
+
+#For loops 
+
+'Dictionaries'
+
+d = {"sam":1,"Frank"=2,"Dan":3}
+
+for k in d:
+	print(k)
+	print(d[k])
+	
+	
+'Tuples'
+
+pairs = [(1,2),(3,4),(5,6)]
+
+for (tup1,tup2) in mypairs:
+	print(tup1)
+	print(tup2)
+	
+	
+	
+# while loops 
+
+i = 1
+
+while i<5:
+	print("i is: {}".format(i)
+	i = i+1
+
+
+#Range
+
+list(range(0,5))->[0,1,2,3,4,5]
+
+pace = 2
+list(range(0,10,pace))->[0,2,4,6,8]
+
+
+for item in range(10):
+	print(item)
+
+
+-> 1 2 3 4 5 6 7 8 9 
+
+
+
+x = [1,2,3,4]
+
+out = [num**2 for num in x]
+
+->[1,4,9,16]
+
+
+
+
+
+
+
+
+#function___________________________________________________________________________________
+
+
+
+definition:
+
+def my_func(parameter='default'):
+	"""
+	THIS IS THE DOCSTRING(C manual)
+	"""
+	print("my first python fuynction!")
+	
+
+
+calling the function:
+
+my_func()
+
+
+def hello()
+	print("hello")
+
+	
+'data type____________________________'
+
+type(10) -> integer
+
+
+
+
+'lambda type expressions_______________________'
+
+
+"""traditional example:"""
+
+mylist = [1,2,3,4,5,6,7,8,9]
+
+def even_bool(num):
+	return num%2 == 0
+
+
+evens = filter(even_bool,mylist)
+
+print(list(evens))
+
+
+
+""" Lambda type expression"""
+
+
+mylist = [1,2,3,4,5,6,7,8,9]
+
+evens = filter(lambda num:num%2 ,mylist)
+
+print(list(evens))
+
+
+____________________________________________________________________________________________________
+
+print('4' in [1,2,3])-> false 
+
+
+'Reading from stdin__________________________'
+guess = input("What is your guess? ")
+
+
+
+'Random numbers____________________________'
+import random
+digits = list(range(10))
+random.shuffle(digits)
+
+
+'String to List_______________________________'
+
+str = "yay"
+
+lst = list(str)
+
+
+#____________________________________________________________________________________________________#
+
+
+'Scope_____________________________________________________'
+
+Python Scope follows the LEGB Rule:
+	Local
+	Enclosing Function Locals(nested function look inside the host function for variables)
+	Global
+	Built-in 
+
+
+	
+'global_____________________________________________________'
+
+x = 50
+
+def func():
+	global x
+	x = ...
+	
+if global is used inside the function, the global variable will reach out for the extern x address
+gloabl x -> pointer to x 
+
+not recommended unless it's really needed.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Objects___________________________________________________________________________________
+
+this code is writen inside a .py file 
+
+class Sample():
+	pass
+
+x = Sample()
+
+
+_______________________________________________________________
+
+
+
+
+
+class Dog():
+	
+	def __init__(self,breed,name):
+		self.breed = breed
+		self.name = name
+
+
+		
+		
+		
+		
+mydog = Dog( "Lab", "Sammy")
+
+mydog.breed -> Lab 
+mydog.name -> Sammy
+
+
+
+'Class object attributes_________________________________'
+
+They are the same in any instance of the object 
+
+
+
+
+
+class Dog():
+
+	# CLASS OBJECT ATTRIBUTE
+	species = "mammal"
+	
+	def __init__(self,breed,name):
+		self.breed = breed
+		self.name = name
+
+
+		
+		
+		
+		
+mydog = Dog( "Lab", "Sammy")
+
+mydog.breed -> Lab 
+mydog.name -> Sammy
+mydog.species -> mammal 
+
+
+
+
+
+
+
+
+
+'Methods_____________________________________________________________________'
+
+
+
+class Circle():
+	
+	pi = 3.14
+	
+	def __init__(self,radius=1) # default value as 1 
+		self.radius = radius
+		
+	def area(self): #the self keywork means it's an object method 
+		return self.radius * self.radius * Circle.pi 
+
+	def set_radius(self,new_r):  # reassigning attribute 
+		self.radius = new_r
+
+
+
+
+		
+		
+myc = Circle()
+myc.radius -> 1
+
+myc.area -> bound method address message
+myc.area(3) -> 28.26
+
+
+
+
+
+'Inheritance_________________________________________________________'
+
+It is possible to create a new class from an existing class. This is Inheritance.
+The new class is the derived class and the existing class is called the base class. 
+
+
+class Animal():
+
+	def __init__(self):
+		print("ANIMAL CREATED")
+		
+	def whoAmI(self):
+		print("ANIMAL")
+		
+	def eat(self):
+		print("EATING")
+
+
+		
+class Dog(Animal):
+	
+	def __init__(self):
+		Animal.__init__(self)
+		print("DOG CREATED")
+	
+	def bark(self):
+		print("BARK")
+		
+	def eat(self):  # method overwrite
+		print("DOG EATING")
+		
+
+myDog = Dog()
+myDog.whoAmI() -> ANIMAL
+myDog.eat() -> DOG EATING 
+
+
+
+'Printing an object_____________________________________________________'
+
+class Book():
+
+	def __init__(self,tittle,author,pages):
+		self.title = title
+		self.author = author
+		self.pages = pages
+		
+		
+book = Book("Maps of Meaning","Jordan Peterson",1000)
+
+
+
+
+print(book)-> this will print the address of the object 
+
+In order to print object information when print(book) is called,
+the following method must be defined in the class Book():
+
+
+
+class Book():
+
+	def __init__(self,tittle,author,pages):
+		self.title = title
+		self.author = author
+		self.pages = pages
+		
+	def __str__(self):
+		return "Title: {} Author: {} Pages: {}".format(self.title,self.author,self.pages)
+		
+		
+print(book)-> Title: Maps of Meaning Author: Jordan Peterson Pages: 1000
+
+
+
+
+
+
+
+
+#Errors and Exceptions_______________________________________
+
+Dictating our code logic in case of an error!
+
+Try
+Exception
+Finally
+
+
+try:
+	f = open('textfile.txt','r')
+	f.write("Write some text")
+
+except:
+	print('ERROR: COULD NOT FIND FILE OR WRITE DATA')
+
+finally:
+	print('This will always be executed')
+
+
+try is not unvulnerable to all errors.
+meaning it can crash and give a standard error 
+
+The big advantage of exceptions is continuing the execution of the code even if there is a none fatale error 
+
+
+
+
+#Regular expressions______________________________________________________________
+
+import re 
+
+'match____________________'
+
+text = 'term1'
+
+match = re.search('term1', text)
+
+match.start()->0 
+
+
+'split____________________'
+
+split_term = '@'
+
+email = 'jaimedcsilva@hotmail.com'
+
+print( re.split(split_term, email))-> [jaimedcsilva, hotmail.com]
+
+
+
+
+'find all____________________'
+
+
+print(re.findall('match', 'test_phrase match in middle match')) -> [match, match]
+
+
+phrase = 'sdsd..sssddd..sdddsddd...dsds...dssssss...sddddd'
+
+patterns = ['sd*']
+
+#sd* -> represents "an s followed by zero or more d's"
+#sd+ -> represents "an s followed by one or more d's"
+#sd? -> represents "an s followed by zero or one d"
+#sd{3} -> represents "an s followed by 3 d's"
+#sd{1,3} -> represents "an s followed by 1 or 3 d's"
+#s[sd]+ -> represents "an s followed by 1 or more s's or 1 or more d's"
+
+#exclusion
+
+phrase  = 'This is a string! But it has punctuation. How we remove it?'
+
+#[^!.?] -> this will split the phrase according to all the characters passed after ^ into a list 
+#[a-z]+ -> this will split the phrase removing all the upper cases 
+#[A-Z]+ -> this will split the phrase removing all the lower cases 
+
+
+phrase = 'This is a string with numbers 1234 and a symbol #hashtag'
+
+'escape codes are indicated using a backslash'
+"back slash must be escaped in a python string, so the r' ' must be used"
+
+#[r'\d+'] -> returns back a sequence of digits -> [1234]
+#[r'\D+'] -> returns back all the none digits 
+#[r'\s+'] -> returns back a list w/ all the white spaces 
+#[r'\S+'] -> returns back a list w/o all the the white spaces 
+#[r'\w+'] -> returns back a list with all the alphanumerics
+#[r'\W+'] -> returns back a list w/o the  alphanumerics(#)
+
+
+print(re.findall(patterns, phrase)
+	
+	
+
+	
+#Packages and Modules____________________________________________________
+
+
+'Creating a module and importing______________________________'
+
+
+module.py	
+
+def func():
+	print("YUP")
+
+
+1.program.py
+
+import module 
+
+module.func()-> YUP 
+
+
+2.program.py
+
+
+import module as woot
+
+woot.func()-> YUP 
+
+
+3.program.py
+
+from module import func
+
+func()-> YUP 
+
+4.program.py
+
+from module import *   # will import everything from module.py 
+
+func()-> YUP 
+
+
+
+
+
+
+
+
+
+#Decorators____________________________________________________________________________
+
+Fill me 
+
+#_____________________________________________________________________________________
+
+
+
+
+
+#Name and main__________________________________________________________________________
+
+	Quando se faz import de um módulo(ficheiro .py), é ligeiramente diferente do C 
+	as linhas de código do módulo são executadas e as funções ficam disponíveis.
+	
+	Ao analizar a seguinte condição:
+
+		if __name__ == "__main__":
+	
+	Se o módulo tiver sido chamado diretamente, a condição é inválida.
+	Se o módulo tiver sido chamado através de outro módulo(import), a condição é falsa.
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+#________________________________________________________Django_______________________________________________________#
+"_____________________________________________________________________________________________________________________"
+
+
+"""Superusers"""
+
+#Django level two folder 
+'''
+myproject superuser:
+name:yahiba
+email:jaimedcsilva@hotmail.com 
+password:django33 
+
+ProTwo superuser:
+name:yahiba
+email:jaimedcsilva@hotmail.com 
+password:django33 
+
+
+first_project superuser:
+name:Japan
+email:jaimedcsilva@hotmail.com 
+password:django33 
+'''
+
+#Django level three folder 
+'''
+
+'''
+
+
+
+#Guide : Creating a Django Project______________________________________________________________
+
+""" Command Prompt """
+
+conda create --name myEnv django
+
+activate django
+deactivate 
+
+#The Django project is created in the current directory
+
+django-admin startproject first_project
+
+
+python manage.py startapp first_app
+
+
+
+(django)
+	first_project
+		first_project
+		first_app
+			#urls.py 
+		#templates 
+			#first_app 
+				#index.html
+		#static 
+			#first_app
+				#img
+				
+""" settings.py """
+
+TEMPLATE_DIR = os.path.join(BASE_DIR,"templates")
+STATIC_DIR = os.path.join(BASE_DIR,"static")
+
+INSTALLED_APPS = [
+...
+    'first_app',
+]
+
+TEMPLATES = [
+...       
+        'DIRS': [TEMPLATE_DIR,],
+...
+]
+
+STATICFILES_DIRS = [
+	STATIC_DIR,
+]
+ 
+ 
+""" urls.py Project """
+ 
+from django.conf.urls import include
+from django.conf.urls import url
+from myapp import views
+
+urlpatterns = [
+    # url(r'^$', views.index, name = 'index'), # this line will make availabe index at the root
+    path('admin/', admin.site.urls),
+    url(r'link/', include('myapp.urls')), # link is created here, could be any name 
+]
+
+
+""" urls.py Application """
+
+from django.conf.urls import url
+from first_app import views
+
+urlpatterns = [
+    url(r'^$', views.index, name ='index'),
+]
+
+
+""" views.py """
+
+from django.shortcuts import render
+
+# Create your views here.
+def index(request):
+    mydic = {"INSERT1":"Django mambo1","INSERT2":"Django mambo2","INSERT3":"Django mambo3"}
+    return render(request,'myapp/index.html', mydic)
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+______________________________________________""" Django Level 1 - Basics """________________________________________________
+
+
+
+
+#Notes:__________________________________________________________________________________________________________
+
+'''The virtual environments are stored in C:\ at the Miniconda3 folder'''
+
+C:\Users\Jaime\Miniconda3\envs\MyDjango
+
+
+
+___________________________________________________________________________________________________________________
+
+'What is the Virtual environment?'
+
+'''Virtual environment allows you to have a virtual installation of Python and packages on your computer'''
+
+
+
+
+'Creating a virtual environment with Anaconda'
+
+conda create --name myEnv django
+'''django is the package, and by default the latest version is installed''''
+
+
+
+
+'Activating the virtual environment:'
+
+activate myEnv
+'''when the environment is activated, anything installed with pip or conda will be installed only on that environment '''
+
+
+
+
+'Deactivate the virtual environment'
+
+deactivate myEnv
+
+
+
+
+'Listing all the environments:'
+
+conda info --envs 
+
+
+
+
+
+
+
+
+
+
+#Creating a Django project________________________________________________________________________________________
+
+'''The Django project is created in the current directory'''
+
+django-admin startproject first_project
+
+
+#The files inside a project:_____________________________________________________________________________________
+
+__init__.py ___________________________________________________________________________
+
+'''blank Python script that due to its special name lets Python know that this directory can be treated as a package '''
+
+
+settings.py ____________________________________________________________________________
+
+'''This is where all the project settings are stored'''
+
+
+urls.py ________________________________________________________________________________
+
+
+from django.conf.urls import url
+
+'''This Python script will store all the URL patterns of the project(The name of the different pages of your web application)
+
+The urls of the project should be here. There is also a urls.py for Django apps. but it seems to not be necessary 
+to fill the app urls.py.'''
+
+
+
+wsgi.py ________________________________________________________________________________
+
+
+'''Acts as the Web Server Gateway Interface 
+It will later on help on deploy the web app to production'''
+
+
+
+manage.py _____________________________________________________________________________
+
+
+'''It is associated with many commands as the web app is built (it is used a lot)'''
+
+
+
+
+#Migrations_____________________________________________________________________________________
+
+'''Migrations allows you to move databases from one design to another(it's also reversible)
+So... you can migrate your database '''
+
+
+
+#Creating a Django application_______________________________________________________________________
+
+'''A Django project is a collection of applications and configurations that when combined together will make up the full 
+web apllication.
+
+A Django application is created to perform a particular functionality for your entire web application. for instance: 
+ Registration app 
+ polling app 
+ comments app 
+ 
+Apps can be pluged into another Django project'''
+ 
+ 
+#Creating an application:
+
+
+'''The application is created inside the Django project and comes along with some files, when created '''
+
+
+
+python manage.py startapp first_app
+
+
+
+#The files inside an application______________________________________________________________________________________
+
+__init__.py  
+
+'''same function as in project file '''
+
+
+
+
+admin.py 
+
+'''It is used to register the models, which Django will then use with Django's admin interface 
+Powerful tool '''
+
+
+
+
+
+apps.py 
+
+''' here goes the specific configurations of the application '''
+
+
+
+
+
+models.py 
+
+'''Here you store the apllication's data models  '''
+
+
+
+
+
+
+tests.py 
+
+'''store test functions, to test the code '''
+
+
+
+
+
+views.py
+
+'''This is where you have functions that handle requests and return responses '''
+
+
+
+
+
+migrations folder 
+
+
+'''stores database specific information as it relates to the models '''
+
+
+
+
+
+
+_____________________________________________________""" URL Mapping """_____________________________________________________________________
+
+
+#include ___________________________________________________________________________________________
+
+from django.conf.urls import include 
+
+include() 
+'''this function allows us to look for a match with regular expressions and link back to our application's own urls.py file'''
+
+____________________________________________________________________________________________________
+
+
+
+
+
+'Project url.py '
+
+urlpatterns = [
+	url(r'^link/', include('first_app.urls')),
+]
+
+localhost:8000/link 
+
+
+
+
+
+
+_____________________________________________________""" Templates """_____________________________________________________________________
+
+'the templates folder stays inside the main project folder '
+
+''' Django must know of the templates. This is done by editing the DIR key inside of the TEMPLATES dictionary in the settings.py file 
+In order to do this in an abstract way, meaning for any OS, the python OS functions must be used.
+So it figures the template path despite of what OS is being used.'''
+
+
+
+
+
+
+
+'Settings - Directories_________________________________________________'
+
+
+
+
+import os 
+print(__file__) # will print the name of the file being executed 
+print(os.path.abspath(__file__)) # will print the directory of the file being executed 
+
+
+'''the settings.py has a variable called BASE_DIR, this variable is the project directory, found by the OS functions.
+
+to create the new abstract path for the templates directory, we must append to the BASE_DIR the templates folder location.
+
+this is achived with the python OS join function: '''
+
+TEMPLATE_DIR = os.path.join(BASE_DIR,"templates")
+
+
+'''in the TEMPLATES dictionary in the settings.py file must be added in key DIRS the value TEMPLATE_DIR'''
+
+TEMPLATES = [
+...       
+        'DIRS': [TEMPLATE_DIR,],
+...
+]
+
+
+
+
+
+
+'Templates e Views.py__________________________________________'
+
+#views.py
+
+'''in the views.py file, the render function imported from django.shortcuts takes a request, the html file name, 
+and a dictionary can be created with the key insert, the value of insert is printed in the html file '''
+
+
+from django.shortcuts import render
+
+# Create your views here.
+def index(request):
+    mydic = {"INSERT1":"Django mambo1","INSERT2":"Django mambo2","INSERT3":"Django mambo3"}
+    return render(request,'myapp/index.html', mydic)
+
+	
+	
+	
+
+ 
+
+'Static files_______________________________________________'
+
+
+''' How to insert static media files??''''
+# A directory inside the project called static is created
+''' This directory is added to the project settings.py file 
+A STATIC_URL variable is also added '''
+
+
+
+
+ 
+# In order to add static media files this tag must be included in the html file top:
+ 
+{% load staticfiles %}
+ 
+ 
+ 
+ 
+
+'Referencing an image:_____________________________________'
+ 
+
+{% static "images/pic.jpg" %}
+ 
+
+<img src={% static "images/pic.jpg" %} /> 
+
+
+
+ 'Template tags'
+ 
+ 
+ {{}} -> simple text injection 
+ 
+ 
+ {%%} -> more complex injections and logic 
+ 
+ 
+ 
+ 
+# Configuring STATIC_DIR______________________________________________________________
+
+
+
+
+'''in older versions of Django this line might not be included by default: it must be included in settings.py '''
+
+STATIC_URL = '/static/'
+
+
+'''This process is similar to the template configuration '''
+
+
+STATIC_DIR = os.path.join(BASE_DIR,"static") 
+
+
+'''if the STATICFILES_DIR is not already created in settings.py, must be created like so:
+this method will be felxible to integrate another static directory from another app.'''
+
+
+STATICFILES_DIRS = [
+	STATIC_DIR,
+]
+
+
+
+
+
+
+
+
+#________________________________Accessing the static files through template tags  
+
+
+static
+	images 
+		img.jpg
+	css 
+		style.css 
+
+
+#in the body of an html file
+
+<!DOCTYPE html>
+{% load staticfiles %}
+
+
+.
+.
+.
+
+<head>
+	<link rel="stylesheet" href="{% static "css/style.css" %}"/>
+	
+</head>
+
+.
+.
+.
+
+<body>
+	<img src="{% static "images/img.jpg" %}" alt="lalala" >
+	
+	
+</body>
+
+.
+.
+.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+____________________________________________________""" Django Level 2 - Models """________________________________________________
+
+
+
+
+#Models________________________________________________________________________________________________________________________________
+
+
+'''Models are used to incorporate a database into a Django project 
+
+Django comes equpped with SQLite  
+
+SQLite works for simple examples, anyway, Django can connect to a variety of SQL engine back ends!
+
+There is an ENGINE paramater in the settings.py file, used for DATABASES 
+
+To crate an actual model, a class structure is crated insided of the app models.py file 
+This class object is a subclass of a Django's built-in class: django.dbmodels.Model 
+
+The attribute ofg the class represents a field, it is like a column name wth constraints in SQL '''
+
+
+
+#After the models are set up, we can migrate the database:
+
+python manage.py migrate 
+
+#Registration of the changes to the app 
+
+python manage.py makemigrations first_app
+
+#A re-migration should be done 
+
+python manage.py migrate 
+
+
+
+
+
+
+
+'Models and Admin____________________________________________________________________________________'
+
+'''In order to use the Admin interface with models, models must be registred into the admin.py file '''
+
+
+
+____________________________________________________________""" Superuser """_______________________________________________________________
+
+
+'In order to fully use the database and the Admin, a super user must be created:'
+
+python manage.py createsuperuser
+'email name password are required and must be saved to remember.'
+
+
+
+
+
+#models.py_______________________________________________________________________________________________________________________
+
+class Topic(models.Model):
+    top_name = models.CharField(max_length=264,unique=True)
+
+    def __str__(self):
+        return self.top_name
+
+class Webpage(models.Model):
+    topic = models.ForeignKey(Topic)
+    name = models.CharField(max_length=264,unique=True)
+    url = models.URLField(unique=True)
+
+    def __str__(self):
+        return self.name
+
+class AccessRecord(models.Model):
+    name = models.ForeignKey(Webpage)
+    date = models.DateField()
+
+    def __str__(self):
+        return str(self.date)
+
+	
+	
+#admin.py_________________________________________________________________________________________________________________
+
+from django.contrib import admin
+	
+from first_app.models import Topic,Webpage,AccessRecord
+admin.site.register(Topic)
+admin.site.register(Webpage)
+admin.site.register(AccessRecord)
+
+	
+'it is possible to manage the database from the manage.py shell'
+
+
+python manage.py shell
+
+from first_app.models import Topic
+print(Topic.objects.all())
+t = Topic(top_name="Social Network")
+t.save()
+print(Topic.objects.all())
+quit()
+	
+	
+	
+	
+
+____________________________________________________________""" FAKER """_______________________________________________________________
+
+
+
+pip install Faker
+
+
+'''faker.readthedocs.io -> link with documentation
+
+A .py file has to be created in the project folder '''
+
+
+#populate_first_app.py
+
+
+
+import os
+# Configure settings for project
+# Need to run this before calling models from application!
+os.environ.setdefault('DJANGO_SETTINGS_MODULE','first_project.settings')
+
+import django
+# Import settings
+django.setup()
+
+
+import random
+from first_app.models import Topic,Webpage,AccessRecord
+from faker import Faker
+
+fakegen = Faker()
+topics = ['Search','Social','Marketplace','News','Games']
+
+def add_topic():
+    t = Topic.objects.get_or_create(top_name=random.choice(topics))[0]
+    t.save()
+    return t
+
+
+
+def populate(N=5):
+    '''
+    Create N Entries of Dates Accessed
+    '''
+
+    for entry in range(N):
+
+        # Get Topic for Entry
+        top = add_topic()
+
+        # Create Fake Data for entry
+        fake_url = fakegen.url()
+        fake_date = fakegen.date()
+        fake_name = fakegen.company()
+
+        # Create new Webpage Entry
+        webpg = Webpage.objects.get_or_create(topic=top,url=fake_url,name=fake_name)[0]
+
+        # Create Fake Access Record for that page
+        # Could add more of these if you wanted...
+        accRec = AccessRecord.objects.get_or_create(name=webpg,date=fake_date)[0]
+
+
+if __name__ == '__main__':
+    print("Populating the databases...Please Wait")
+    populate(20)
+    print('Populating Complete')
+
+
+
+	
+	
+	
+	
+_______________________________________________________""" MTV Paradigm """__________________________________________________
+
+Models
+Templates 
+Views 
+
+
+1Step:
+In the views.py file we import any models that will be necessary 
+
+
+2Step:
+Use the view to query the models for data that will be necessary
+
+
+3Step:
+Pass the results from the model to the template 
+
+
+4Step:
+Edit the templates so thas it's ready to accept and display the data from the model 
+
+
+5Step:
+Map an URL to the view 
+
+
+______________________________________________________________________________________________________________________________
+
+
+
+
+#views.py __________________________________________________________________________________________________________
+
+
+from first_app.models import Topic, Webpage, AccessRecord 
+
+def index(request):
+	webpages_list = AccessRecord.objects.order_by('date') 
+	date_dict = {'access_records':webpages_list}
+	return render(request, 'first_app/index.html', context = date_dict )
+	 
+	 
+	 
+
+
+
+
+
+#Template tagging sintax_____________________________________________________________________________________________
+
+"must be called in the begining of the file "
+
+{% load staticfiles %}
+
+
+"if"
+
+{% if access_records %}
+
+{% else %}
+
+{% endif %}
+
+
+"for"
+
+{% for acc in access_records %}
+
+{% endfor %}
+
+
+
+"Database"
+
+{{ acc.name }}  #name and date were defined in models in the access_records class (they are columns of a table)
+{{ acc.date }}  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+________________________________________""" Django Level 3 - User Input """_____________________________________
+
+
+
+
+
+#Django forms ____________________________________________________________________________________________________________________________________
+
+
+'Django forms are different than HTML forms, here are some advantage:'
+
+'''
+-They can quickly generate HTML form widgets
+-Data validation and processing into Python data structure 
+-Create a form out of a Model, Quick update model to form  
+
+A form.py file must be created inside the application '''
+
+
+
+__________________________________________________"""Creating the form"""___________________________________________________
+
+#form.py 
+
+from django import forms
+
+class FormName(forms.Form):
+    name = forms.CharField()
+    email = forms.EmailField()
+    text = forms.CharField(widget = forms.Textarea)
+
+
+____________________________________________"""Creating the view for the form"""_________________________________________
+
+
+from django.shortcuts import render
+from . import form    #the . indicates to import from the same diectory as the current .py file     
+
+
+def form_name_view(request):
+    form = forms.FormName()
+
+    if request.method == 'POST':
+        form = forms.FormName(request.POST)
+
+        if form.is_valid():
+            #Action
+            print("Validation Successful")
+            print("Name: " + form.cleaned_data['name'])
+            print("Email: " + form.cleaned_data['email'])
+            print("Text: " + form.cleaned_data['text'])
+
+    return render(request, 'first_app/form_page.html', {'form':form})
+
+
+''' If we click submit without the view for the form, nothing will happen 
+the view must be informed, that if we get a POST back, a data validation must occur and if it's valid proceeding to grab the data
+upon receiving a validated form, a dictionary can be accessed with the clean data '''
+
+
+_________________________________"""Connecting the form to the HTML"""______________________________________
+
+
+
+<form method = "POST">
+
+	{{ form.as_p }} #the .as_p add parapgraphs to the form, it is option, alternatively {{ form }} can be used 
+	{% csrf_token %}
+	
+</form> 
+
+
+# Cross-site Request Forgery
+
+{% csrf_token %}
+
+
+'''This is a Cross-Site Request Forgery which secures the HTTP POST action
+ that is initiatated on the subsequent submission of a form   
+It is not an option, it must be there, or the form will not work.
+Site security measures!'''
+
+
+
+
+
+_________________________________________________"""Form Validation"""_______________________________________________
+
+
+
+'''In a form object it's possible to put an hidden input field. This hidden field will not display in the browser, but it stays present in the html.
+So when a bot tries to fill the html code automatically, it's catched through the hidden input
+'''
+
+
+
+
+'Django validator:__________________________________________________________'
+
+
+from django.core import validators 
+
+class FormName(forms.Form):
+botcatcher = forms.CharField(requuired = False, widget = forms.HiddenInput, validators = [validators.MaxLengthValidator(0)])
+
+'''This will print a warning message in the html page'''
+
+
+'Creating a validator_________________________________________________________'
+
+
+from django.core import validators 
+
+def check_for_z(value):
+	if value[0].lower() != 'z':
+		raise forms.ValidationError("Name needs to start with z")
+		
+class FormName(forms.Form):
+	name = forms.CharField(validators = [check_for_z ]) 
+	
+	'''This will print a warning message in the html page'''
+	
+	
+	
+	
+
+	
+'Cleaning the entire form at once__+__Email confirmation_____________________________________________________'
+
+
+from django.core import validators 
+	
+class FormName(forms.Form):
+	email = forms.EmailField()
+	verify_email = forms.EmailField( label='Enter your email again:')
+	
+	def clean(self):
+		  all_clean_data = super().clean()
+		  email = all_clean_data['email']
+		  vmail = all_clean_data['verify_email']
+		  
+		  if email != vmail:
+			raise forms.ValidationError("Make sure emails Match!")
+		  
+	
+	'''This will print a warning message in the html page'''
+
+	
+	
+	
+	
+	
+_________________________________________________"""Form to Model"""_______________________________________________
+
+
+'''Instead of inheriting from the forms.Forms class, forms.ModelForm class is used in the forms.py file '''
+
+forms.ModelForm 
+
+This class allows us to create a form from a pre existing model 
+
+then... an inline class called Meta is added 
+
+The Meta class provides indormation connecting the model to the form 
+
+
+'example_____________________________________'
+
+
+from django import forms 
+from myapp.models import MyModel
+
+class MyNewForm(forms.ModelForm):
+	#Form fields go here 
+	class Meta:
+		model = MyModel 
+		# Let's see the options 
+		
+		
+#Option 1 
+
+fields = "__all__"
+
+'Grabs all the fields from the model and place into the form '
+
+#Option 2 
+
+exclude = ["field1" , "field2"]  
+	
+'We can select what fields to exclude '
+
+#Option 3
+
+fields = ["field1" , "field2"]   
+
+'We can select what fields to include'
+
+
+
+
+_________________________________________________'''Form to Model'''_______________________________________________
+
+#models.py
+
+class User(models.Model):
+    first_name = models.CharField(max_length=128)
+    last_name = models.CharField(max_length=128)
+    email = models.EmailField(max_length=254,unique=True)
+
+	
+	
+#admin.py 
+
+from appTwo.models import User
+admin.site.register(User)
+
+
+
+
+'Create a ModelForm in forms.py_________________________________________________'
+
+#forms.py
+
+from django import forms
+from appTwo.models import User 
+
+class MyNewForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = "__all__"
+
+		
+		
+		
+'Connect the form in the template_________________________________________________'
+
+    <form   method = "POST" >
+                {{ form.as_p }}
+				{% csrf_token %}
+                <input type="submit" class = "btn btn-primary" value="Submit"  >
+     </form>
+
+
+
+'Edit views.py to show the form_________________________________________________'
+
+#views.py 
+
+from appTwo.forms import MyNewForm
+
+def form_name_view(request):
+
+    form = forms.MyNewForm()
+
+    if request.method == 'POST':
+        form = forms.MyNewForm(request.POST)
+
+        if form.is_valid():
+            
+            post = form.save(commit=False)
+            post.author = request.user
+            post.published_date = timezone.now()
+            post.save()
+			
+			#this prints in the CMD 
+            print("Validation Successful")
+            print("First Name: " + form.cleaned_data['first_name'])
+            print("Last Name: " + form.cleaned_data['last_name'])
+            print("E-mail: " + form.cleaned_data['email'])
+
+
+            
+            return index(request)
+
+
+    return render(request, 'appTwo/users.html', {'form':form})
+
+
+	
+'Figure out how to .save() the data_________________________________________________'
+
+#views.py 
+
+from appTwo.forms import MyNewForm
+
+def form_name_view(request):
+
+    form = forms.MyNewForm()
+
+    if request.method == 'POST':
+        form = forms.MyNewForm(request.POST)
+
+        if form.is_valid():
+            
+            post = form.save(commit=False)
+            post.author = request.user
+            post.published_date = timezone.now()
+            post.save()
+
+			#this prints in the CMD 
+            print("Validation Successful")
+            print("First Name: " + form.cleaned_data['first_name'])
+            print("Last Name: " + form.cleaned_data['last_name'])
+            print("E-mail: " + form.cleaned_data['email'])
+			
+			
+            return index(request)
+
+			
+    return render(request, 'appTwo/users.html', {'form':form})
+
+
+	
+
+'Verify the model is admin registered_________________________________________________'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
