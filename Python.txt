@@ -3069,12 +3069,129 @@ def form_name_view(request):
 
 	
 
-'Verify the model is admin registered_________________________________________________'
+'Verify if the model is admin registered_________________________________________________'
 
 
 
 
 
+
+
+
+______________________________________________"""Relative URL with Templates"""_______________________________________________
+
+
+#urls.py (application)
+
+from basic_app import views 
+
+app_name = 'basic_app'
+
+urlpatterns = [
+	url(r'^relative/$', views.relative, name = 'relative'),
+	url(r'^other/$', views.other, name = 'other'),
+	
+]
+
+
+#relative.html 
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <h1>Study Nature</h1>
+		<a href="{% url 'basic_app:other' %}">Link</a>
+    </body>
+</html>
+
+'''
+"{% url 'basic_app:other' %}"></
+
+app_name = 'basic_app'
+ name = 'other'
+
+'''
+
+
+'Anchoring the admin page with relative urls_________________________________________________'
+
+
+<a href="{% url 'admin:index' %}">Link</a>
+
+'''In order for this to work migrating might be necessary '''
+
+python manage.py migrate 
+
+
+'Anchoring the index of the project (root)_________________________________________________'
+
+<a href="{% url 'index' %}">Link</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+______________________________________________""" Template Inheritance """ _____________________________________________ 
+
+
+<!DOCTYPE html>
+{% extends "basic_app/base.html" %}
+{% block body_block %}
+{% endblock %}
+
+
+
+
+
+
+
+
+
+_______________________________________""" Template Filters and Custom Filters """ ___________________________________
+
+
+
+''' Django provides a ton of easy to implement template filters that allows me to effect the injection before displaying it to the user, allowing to have flexibility
+from a single source'''
+
+#Template filters general form:
+
+{{ value | filter:"parameter" }}
+
+'''Not all the filters take in parameters and maney of these filters are based off of common built-in Python functions so I am already familiared with them,
+it is also possible to create my own filters'''
+
+Google search: Django + Templates -> filters 
+
+
+'Example:'
+
+'''Considering the dictionary:'''
+
+{'django' : 'the web framework for perfectionists with deadlines' }
+
+'''applying the title filter as an example'''
+
+{{ django|tittle }}
+
+''' will produce the output'''
+
+The Web Framework For Perfectionists With Deadlines
 
 
 
