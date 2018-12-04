@@ -829,7 +829,7 @@ obj['c']['inside'][1]
 
 
 
- DOM is an interface between JS and HTML/CSS 
+ i is an interface between JS and HTML/CSS 
  
  The DOM of a website in inspectable 
  
@@ -1832,6 +1832,61 @@ from module import *   # will import everything from module.py
 func()-> YUP 
 
 
+#printing local and global variables
+
+print(locals())
+print(gloabls())
+
+
+#assigning new name to function 
+
+def hello(name = "Jaime")
+	return "hello" + name 
+	
+myNewFunc = hello 
+
+myNewFunc() #hello Jaime 
+
+
+#nested functions __________________________________
+
+def hello(name = "Jaime")
+	
+	def greet():
+		return "inside greet"
+		
+	def welcome():
+		return "inside welcome"
+	
+	if name == "Jaime"
+		return greet
+	else:
+		return welcome 
+
+		
+x = hello   # returns hello 		
+x = hello() # it returns "inside greet"
+x = hello("Silva") #It returns "inside welcome"
+
+
+#function arguments ______________________________________________________
+
+def other(func):
+	print("hello")
+	print(func())
+	
+	
+other(hello)
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1841,7 +1896,54 @@ func()-> YUP
 
 #Decorators____________________________________________________________________________
 
-Fill me 
+
+
+def new_decorator(func):
+
+	def wrap_func():
+		print("Code here before executing func")
+		func()
+		print("Func() was called")
+		
+	return wrap_func
+	
+
+	
+def func_needs_decorator():
+	print("This function is in need of a decoration!")
+	
+	
+
+
+func_needs_decorator = new_decorator(func_needs_decorator)
+
+func_needs_decorator() 
+
+#Code here before executing func 
+#This function is in need of a decorator 
+#Func() was called 
+
+
+#Similarly:
+
+@new_decorator
+def func_needs_decorator():
+	print("This function is in need of a decoration!")
+
+
+#Code here before executing func 
+#This function is in need of a decorator 
+#Func() was called 
+
+
+
+
+
+ 
+
+	
+	
+	
 
 #_____________________________________________________________________________________
 
@@ -1911,6 +2013,11 @@ password:django33
 
 first_project superuser:
 name:Japan
+email:jaimedcsilva@hotmail.com 
+password:django33 
+
+jaimedcsilva(Web) superuser:
+name:Jaime
 email:jaimedcsilva@hotmail.com 
 password:django33 
 '''
@@ -2773,11 +2880,12 @@ ________________________________________""" Django Level 3 - User Input """_____
 
 A form.py file must be created inside the application '''
 
+"""Djangos forms stay inside the app folder"""
 
 
 __________________________________________________"""Creating the form"""___________________________________________________
 
-#form.py 
+#forms.py 
 
 from django import forms
 
@@ -2841,7 +2949,7 @@ Site security measures!'''
 
 
 
-_________________________________________________"""Form Validation"""_______________________________________________
+_________________________________________________"""	Validation"""_______________________________________________
 
 
 
@@ -3195,8 +3303,94 @@ The Web Framework For Perfectionists With Deadlines
 
 
 
+#Filters Examples_______________________________________________________________________________________________________ 
 
 
+
+'views.py'
+
+def index(request):
+	context_dict = {'text' : 'hello world', 'number' : 100}
+	return render(request, 'basic_app/index.html', context_dict)
+	
+	
+'index.html'
+
+
+<body>
+		
+		{{ text }} #hello world
+		{{ text|upper }} #HELLO WORLD
+		{{ number }} #100
+		{{ number|add:"99" }} #199
+		
+</body>
+
+
+#Creating a filter____________________________________________________________________________________________________
+
+basic project
+	basic_app 
+		models.py 
+		views.py
+		templatetags
+			__init__.py
+			my_extras.py
+	basic_project
+
+#__init__.py ______________________________________________________
+
+This file must be created inside a templatag folder.
+It says that python should treat thisas module
+
+
+#my_extras.py ______________________________________________________________
+
+
+from django import template 
+
+register = template.Library()
+
+
+def cut(value, arg):
+	"""
+	Cuts out all values of "arg" from string!
+	"""
+	return value.replace(arg, ' ')
+	
+	
+register.filter('cut',cut)
+
+
+'index.html'
+
+
+<body>
+		
+		{{ text }} #hello world
+		{{ text|cut: 'hello' }} # world
+	
+		
+</body>
+
+
+
+#With decorators 
+
+@register.filter(name = 'cut')
+def cut(value, arg):
+	"""
+	Cuts out all values of "arg" from string!
+	"""
+	return value.replace(arg, ' ')
+	
+<body>
+		
+		{{ text }} #hello world
+		{{ text|cut: 'hello' }} # world
+	
+		
+</body>
 
 
 
