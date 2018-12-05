@@ -3353,9 +3353,9 @@ register = template.Library()
 
 
 def cut(value, arg):
-	"""
+	'''
 	Cuts out all values of "arg" from string!
-	"""
+	'''
 	return value.replace(arg, ' ')
 	
 	
@@ -3375,7 +3375,7 @@ register.filter('cut',cut)
 
 
 
-#With decorators 
+#With decorators_____________________________________
 
 @register.filter(name = 'cut')
 def cut(value, arg):
@@ -3430,7 +3430,7 @@ ________________________________________""" Django Level 5 - User Authentication
 Users and the User Model
 Permissions
 Groups
-Passwords andAuthentication
+Passwords and Authentication
 Logging In and Out
 '''
 
@@ -3514,10 +3514,12 @@ AUTH_PASSWORD_VALIDATORS = [
 
 '''Media folder is created in the same directory as static and templates. And its purpose is to store uploaded data from the users.'''
 
-Similarly to templates and static folder, in the settings.py file the directory for media must be added like so:
+'''Similarly to templates and static folder, in the settings.py file the directory for media must be added like so:'''
 
 MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 
+MEDIA_ROOT = MEDIA_DIR 
+MEDIA_URL = '/media/'
 
 
 
@@ -3534,3 +3536,108 @@ MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 
 
 
+
+
+
+
+
+
+
+______________________________________________________''' User Models '''_____________________________________________
+
+
+
+
+
+ 'The User object has a few key features:'
+ 
+ Username  
+ Email 
+ Password 
+ First Name 
+ Surname 
+
+ 
+ 
+'other attributes:____________________'
+
+is_active
+is_staff
+is_superuser
+
+
+'''Manipulating these atributtes can be done in the models.py file by creating another class that has a relatiionship'''
+
+
+#models.py 
+
+ from django.contrib.auth.models import User
+ 
+ class UserProfileInfo(models.Model):
+	
+	user = models.OneToOneField(User) #allows to create a one to one direction to the extra user information
+	
+	
+	portfolio = models.URLField(blank = True)
+	picture = models.ImageField(upload_top = 'profile_pics') #Allows to store images to a model.
+	
+	def __str__(Self):
+		return self.user.username
+	
+	
+'''User content will typically stay in the media file''' 
+'''To work with images in pyton the following library must be installed'''
+pip install pillow 
+
+
+
+#admin.py
+
+from basic_app.models import UserProfileInfo
+admin.site.register(UserProfileInfo)
+
+	
+''' a form will be the interface for the User ''' 
+
+
+#forms.py
+
+from basic_app.models import UserProfileInfo 
+
+class UserProfileInfoForm(forms.ModelForm):
+	portfolio = forms.URLField( required = False)
+	picture = forms.ImageField(required = False)
+	
+	class Meta():
+		model = UserProfileInfo
+		exclude = ('user',)
+		
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
