@@ -3407,3 +3407,130 @@ def cut(value, arg):
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+________________________________________""" Django Level 5 - User Authentication """_____________________________________
+
+
+
+#Main focus:
+'''
+Users and the User Model
+Permissions
+Groups
+Passwords andAuthentication
+Logging In and Out
+'''
+
+
+
+
+
+
+
+'Django Passwords____________________________________________________________________________________________________'
+
+
+'''To set up the ability to authenticate a User weneed to use some built-in apps and make sure they are under the INSTALLED_APPS list in settings.py'''  
+
+
+'''The apps to be "installed" are the following:'''
+django.contrib.authenticate
+django.contrib.contenttypes
+
+'''They are often already installed'''
+
+'''After the installation'''
+#python manage.py migrate 
+
+
+"NEVER STORE PASSWORDS AS PLAIN TEXT"
+"NEVER STORE PASSWORDS AS PLAIN TEXT"
+
+ 
+
+'''To use password encryption the following must be installed:'''
+pip install bcrypt
+pip install django[argon2]
+ 
+'''In settings.py it is passed the list of PASSWORD_HASHERS to try in the order you want to try'''
+
+'''this SHA encryption method was created by NSA'''
+
+
+
+#settings.py 
+
+PASSWORD_HASHERS = [
+    'django.contrib.auth.hashers.Argon2PasswordHasher',
+    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+    'django.contrib.auth.hashers.BCryptPasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+]
+
+
+
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS':{'min_length':9}
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+]
+
+
+''' Password Validators control things like not using similar passwords to the username or set a minimal length or a common password like 123456'''
+
+
+
+
+
+
+
+
+
+'Media Folder____________________________________________________________________________________________________'
+
+'''Media folder is created in the same directory as static and templates. And its purpose is to store uploaded data from the users.'''
+
+Similarly to templates and static folder, in the settings.py file the directory for media must be added like so:
+
+MEDIA_DIR = os.path.join(BASE_DIR, 'media')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
